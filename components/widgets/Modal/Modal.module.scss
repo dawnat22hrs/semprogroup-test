@@ -1,0 +1,151 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// ── Transition classes ────────────────────────────────────
+.enter {
+  opacity: 0;
+}
+.enterActive {
+  opacity: 1;
+  transition: opacity $transition-modal;
+}
+.exit {
+  opacity: 1;
+}
+.exitActive {
+  opacity: 0;
+  transition: opacity $transition-modal;
+}
+
+// ── Overlay ───────────────────────────────────────────────
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+// ── Modal box ─────────────────────────────────────────────
+.modal {
+  position: relative;
+  background: $color-white;
+  width: 100%;
+  max-width: 480px;
+  padding: 64px 56px 56px;
+
+  @include tablet {
+    padding: 52px 40px 44px;
+  }
+
+  @include mobile {
+    padding: 48px 24px 40px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-dark;
+  cursor: pointer;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $color-dark;
+  margin-bottom: 40px;
+
+  @include mobile {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+}
+
+// ── Form ──────────────────────────────────────────────────
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.field {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $color-border;
+  background: transparent;
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-dark;
+  padding: 16px 0 8px;
+  outline: none;
+  transition: border-color $transition-base;
+
+  &:focus {
+    border-bottom-color: $color-dark;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+  pointer-events: none;
+  transition:
+    top 0.25s ease,
+    font-size 0.25s ease,
+    color 0.25s ease;
+}
+
+.labelFloated {
+  top: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+// ── Submit ────────────────────────────────────────────────
+.submit {
+  margin-top: 8px;
+  align-self: flex-start;
+  background: $color-blue;
+  color: $color-white;
+  font-family: $font-primary;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 14px 40px;
+  cursor: pointer;
+  border: 2px solid $color-blue;
+  transition:
+    background $transition-base,
+    color $transition-base;
+
+  &:hover {
+    background: transparent;
+    color: $color-blue;
+  }
+}

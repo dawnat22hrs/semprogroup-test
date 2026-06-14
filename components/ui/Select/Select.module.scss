@@ -1,0 +1,97 @@
+@use '../../../styles/variables' as *;
+
+.wrapper {
+  display: inline-block;
+
+  .arrow {
+    transition: transform $transition-base;
+  }
+
+  &.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  :global(.rselect__menu) {
+    animation: menuOpen 0.2s ease forwards;
+  }
+
+  &.closing :global(.rselect__menu) {
+    animation: menuClose 0.2s ease forwards;
+  }
+}
+
+.label {
+  display: block;
+}
+
+.entering {
+  animation: textEnter 0.5s ease forwards;
+}
+
+.leaving {
+  animation: textLeave 0.5s ease forwards;
+}
+
+@keyframes textEnter {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+  21% {
+    transform: translateY(200%);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textLeave {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  21% {
+    transform: translateY(-200%);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuClose {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}

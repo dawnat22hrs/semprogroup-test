@@ -1,0 +1,84 @@
+@use '../../../styles/variables' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  height: 51px;
+  font-family: $font-primary;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+}
+
+.filled {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-blue);
+}
+
+.overflow {
+  display: block;
+  overflow: hidden;
+}
+
+.label {
+  display: block;
+}
+
+.entering {
+  animation: textEnter 0.5s ease forwards;
+}
+
+.leaving {
+  animation: textLeave 0.5s ease forwards;
+}
+
+@keyframes textEnter {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+  21% {
+    transform: translateY(200%);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textLeave {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  21% {
+    transform: translateY(-200%);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

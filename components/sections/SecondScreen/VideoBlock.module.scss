@@ -1,0 +1,149 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.wrap {
+  display: flex;
+  align-items: center;
+}
+
+.trigger {
+  cursor: pointer;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 586px;
+  justify-content: space-between;
+
+  .labelGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 23px;
+
+    .title {
+      white-space: nowrap;
+    }
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background: $color-gray;
+  }
+}
+
+.thumb {
+  position: relative;
+  width: 241px;
+  height: 241px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-blue, 0.3);
+    z-index: 1;
+  }
+}
+
+.thumbImg {
+  object-fit: cover;
+}
+
+.cirlce {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 141px;
+  height: 141px;
+  border: 1px solid $color-white;
+  border-radius: 100%;
+  transition:
+    width $transition-base,
+    height $transition-base;
+  z-index: 3;
+
+  .trigger:hover & {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: $color-white;
+  transition: background $transition-base;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+
+  .trigger:hover & {
+    background: rgba(71, 111, 234, 0.3);
+  }
+}
+
+.labelWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  color: $color-white;
+  opacity: 0.8;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,56 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: $color-white;
+  padding: 0 80px;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+
+  @include small-desktop {
+    height: 56px;
+  }
+
+  @include tablet {
+    height: 52px;
+  }
+
+  @include mobile {
+    height: 48px;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  a {
+    font-size: 14px;
+    color: $color-dark;
+    font-weight: 600;
+  }
+}

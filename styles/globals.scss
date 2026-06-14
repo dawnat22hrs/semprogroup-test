@@ -1,0 +1,61 @@
+@use 'fonts';
+@use 'variables' as *;
+
+:root {
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-blue: #{$color-blue};
+  --color-dark: #{$color-dark};
+  --color-gray: #{$color-gray};
+  --color-border: #{$color-border};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100%;
+  font-family: $font-primary;
+  font-weight: 400;
+  color: $color-dark;
+  background: $color-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0 80px 77px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}

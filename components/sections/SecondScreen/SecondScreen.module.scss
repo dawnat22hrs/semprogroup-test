@@ -1,0 +1,136 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $color-white;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  min-height: 600px;
+  gap: 163px;
+
+  @include wide {
+    min-height: 700px;
+  }
+
+  @include small-desktop {
+    min-height: 520px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+// ── Left: image ───────────────────────────────────────────
+.imageCol {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  // In column layout flex-basis acts as height → override explicitly
+  @include tablet {
+    flex: none;
+    width: 100%;
+    height: 360px;
+  }
+
+  @include mobile {
+    flex: none;
+    width: 100%;
+    height: 260px;
+  }
+}
+
+.imageLabel {
+  text-align: right;
+  padding-bottom: 35px;
+  flex-shrink: 0;
+}
+
+.imageWrap {
+  position: relative;
+  width: 733px;
+  height: 900px;
+}
+
+.imageClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.blueSeparator {
+  width: 63px;
+  height: 12px;
+  background: $color-blue;
+  border-radius: 2px;
+}
+
+.badge {
+  position: absolute;
+  top: 30%;
+  right: calc(-259px / 2);
+  transform: translateY(-50%);
+  width: 259px;
+  height: 259px;
+  border-radius: 50%;
+  background: $color-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(71, 111, 234, 0.4);
+
+  @include tablet {
+    right: 24px;
+    top: auto;
+    bottom: -28px;
+    transform: none;
+  }
+
+  @include mobile {
+    right: 16px;
+    bottom: -24px;
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
+}
+
+// ── Right: text ───────────────────────────────────────────
+.textCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 134px 60px 0 88px;
+
+  .textBlock {
+    text-transform: uppercase;
+    width: 587px;
+  }
+
+  .titleBlock {
+    margin: 65px 0 120px;
+  }
+
+  .subtitleBlock {
+    margin-bottom: 100px;
+  }
+}
