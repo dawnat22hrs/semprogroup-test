@@ -6,20 +6,10 @@
   align-items: center;
 }
 
-.trigger {
-  cursor: pointer;
-  transition: opacity $transition-base;
-
-  &:hover {
-    opacity: 0.75;
-  }
-}
-
 .titleRow {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 586px;
   justify-content: space-between;
 
   .labelGroup {
@@ -29,6 +19,43 @@
 
     .title {
       white-space: nowrap;
+      font-size: 18px;
+
+      @include desktop {
+        font-size: 14px;
+      }
+
+      @include small-desktop {
+        font-size: 10px;
+      }
+
+      @include tablet {
+        font-size: 10px;
+      }
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+
+    .duration {
+      font-size: 18px;
+
+      @include desktop {
+        font-size: 14px;
+      }
+
+      @include small-desktop {
+        font-size: 13px;
+      }
+
+      @include tablet {
+        font-size: 13px;
+      }
+
+      @include mobile {
+        font-size: 13px;
+      }
     }
   }
 
@@ -46,6 +73,7 @@
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
+  cursor: pointer;
 
   &::after {
     content: '';
@@ -53,6 +81,26 @@
     inset: 0;
     background: rgba($color-blue, 0.3);
     z-index: 1;
+  }
+
+  @include desktop {
+    width: 186px;
+    height: 186px;
+  }
+
+  @include small-desktop {
+    width: 133px;
+    height: 133px;
+  }
+
+  @include tablet {
+    width: 133px;
+    height: 133px;
+  }
+
+  @include mobile {
+    width: 131px;
+    height: 131px;
   }
 }
 
@@ -74,9 +122,49 @@
     height $transition-base;
   z-index: 3;
 
-  .trigger:hover & {
+  .thumb:hover & {
     width: 160px;
     height: 160px;
+  }
+
+  @include desktop {
+    width: 109px;
+    height: 109px;
+
+    .thumb:hover & {
+      width: 130px;
+      height: 130px;
+    }
+  }
+
+  @include small-desktop {
+    width: 79px;
+    height: 79px;
+
+    .thumb:hover & {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  @include tablet {
+    width: 79px;
+    height: 79px;
+
+    .thumb:hover & {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  @include mobile {
+    width: 77px;
+    height: 77px;
+
+    .thumb:hover & {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
 
@@ -93,7 +181,7 @@
   display: flex;
   gap: 6px;
 
-  .trigger:hover & {
+  .thumb:hover & {
     background: rgba(71, 111, 234, 0.3);
   }
 }

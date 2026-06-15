@@ -1,7 +1,6 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-// ── Transition classes ────────────────────────────────────
 .enter {
   opacity: 0;
 }
@@ -17,41 +16,70 @@
   transition: opacity $transition-modal;
 }
 
-// ── Overlay ───────────────────────────────────────────────
 .overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.5);
+  background: $color-white;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 0 20px;
 }
 
-// ── Modal box ─────────────────────────────────────────────
 .modal {
   position: relative;
-  background: $color-white;
   width: 100%;
-  max-width: 480px;
-  padding: 64px 56px 56px;
+  max-width: 587px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+
+  @include desktop {
+    gap: 50px;
+  }
+
+  @include small-desktop {
+    gap: 50px;
+  }
 
   @include tablet {
-    padding: 52px 40px 44px;
+    gap: 50px;
   }
 
   @include mobile {
-    padding: 48px 24px 40px;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .title {
+    font-size: 52px;
+
+    @include desktop {
+      font-size: 40px;
+    }
+
+    @include small-desktop {
+      font-size: 28px;
+    }
+
+    @include tablet {
+      font-size: 28px;
+    }
+
+    @include mobile {
+      font-size: 20px;
+    }
   }
 }
 
 .close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,90 +90,247 @@
   &:hover {
     opacity: 0.5;
   }
-}
 
-.title {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: $color-dark;
-  margin-bottom: 40px;
+  @include small-desktop {
+    top: 50px;
+    right: 50px;
+  }
+
+  @include tablet {
+    top: 40px;
+    right: 40px;
+  }
 
   @include mobile {
-    font-size: 16px;
-    margin-bottom: 28px;
+    top: 20px;
+    right: 20px;
   }
 }
 
-// ── Form ──────────────────────────────────────────────────
 .form {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-}
-
-.field {
-  position: relative;
-}
-
-.input {
+  gap: 33px;
   width: 100%;
-  border: none;
-  border-bottom: 1px solid $color-border;
-  background: transparent;
-  font-family: $font-primary;
-  font-size: 16px;
-  font-weight: 400;
-  color: $color-dark;
-  padding: 16px 0 8px;
-  outline: none;
-  transition: border-color $transition-base;
 
-  &:focus {
-    border-bottom-color: $color-dark;
+  @include desktop {
+    gap: 25px;
+  }
+
+  @include small-desktop {
+    gap: 29px;
+  }
+
+  @include tablet {
+    gap: 29px;
+  }
+
+  @include mobile {
+    gap: 25px;
   }
 }
 
-.label {
-  position: absolute;
-  left: 0;
-  top: 16px;
-  font-family: $font-primary;
-  font-size: 16px;
-  font-weight: 400;
-  color: #999;
-  pointer-events: none;
-  transition:
-    top 0.25s ease,
-    font-size 0.25s ease,
-    color 0.25s ease;
+.buttonBlock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  margin-top: 18px;
 }
 
-.labelFloated {
-  top: 0;
-  font-size: 12px;
-  color: #666;
+.button {
+  width: 234px;
+  --button-font-size: 15px;
+
+  @include desktop {
+    width: 228px;
+    --button-font-size: 14px;
+  }
+
+  @include small-desktop {
+    width: 170px;
+    --button-font-size: 14px;
+  }
+
+  @include tablet {
+    width: 170px;
+    --button-font-size: 14px;
+  }
+
+  @include mobile {
+    width: 170px;
+    --button-font-size: 11px;
+  }
 }
 
-// ── Submit ────────────────────────────────────────────────
-.submit {
-  margin-top: 8px;
-  align-self: flex-start;
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  animation: fadeIn 0.4s ease forwards;
+
+  @include desktop {
+    gap: 20px;
+  }
+
+  @include small-desktop {
+    gap: 16px;
+  }
+
+  @include tablet {
+    gap: 16px;
+  }
+
+  @include mobile {
+    gap: 14px;
+  }
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   background: $color-blue;
   color: $color-white;
-  font-family: $font-primary;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 14px 40px;
-  cursor: pointer;
-  border: 2px solid $color-blue;
-  transition:
-    background $transition-base,
-    color $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
 
-  &:hover {
-    background: transparent;
-    color: $color-blue;
+  @include desktop {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+  }
+
+  @include small-desktop {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+
+  @include tablet {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 6px;
+  }
+}
+
+.successCheckIcon {
+  width: 40px;
+  height: 30px;
+
+  @include desktop {
+    width: 32px;
+    height: 24px;
+  }
+
+  @include small-desktop {
+    width: 25px;
+    height: 19px;
+  }
+
+  @include tablet {
+    width: 25px;
+    height: 19px;
+  }
+
+  @include mobile {
+    width: 22px;
+    height: 16px;
+  }
+}
+
+.successTitle {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 52px;
+
+  @include desktop {
+    font-size: 40px;
+  }
+
+  @include small-desktop {
+    font-size: 28px;
+  }
+
+  @include tablet {
+    font-size: 28px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.successSubtitle {
+  margin-bottom: 16px;
+  font-size: 18px;
+
+  @include desktop {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  @include small-desktop {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  @include tablet {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  @include mobile {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+}
+
+.confirmationText {
+  font-size: 14px;
+
+  @include desktop {
+    font-size: 12px;
+  }
+
+  @include small-desktop {
+    font-size: 11px;
+  }
+
+  @include tablet {
+    font-size: 11px;
+  }
+
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

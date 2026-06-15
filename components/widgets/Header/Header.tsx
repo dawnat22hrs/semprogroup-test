@@ -1,16 +1,10 @@
 'use client';
 
 import styles from './Header.module.scss';
-import { Burger, Button, ButtonVariant, Select, type SelectOption } from '../../ui';
+import { Burger, Button, ButtonVariant, Select } from '../../../shared/ui';
+import { IconPhone } from '@/assets/icons';
 import Image from 'next/image';
-
-const apartmentOptions: SelectOption[] = [
-  { value: 'studio', label: 'Студии' },
-  { value: '1k', label: '1-комнатные' },
-  { value: '2k', label: '2-комнатные' },
-  { value: '3k', label: '3-комнатные' },
-  { value: 'penthouse', label: 'Пентхаусы' },
-];
+import { apartmentOptions } from '@/constants/selectOptions';
 
 interface HeaderProps {
   onOpenModal: () => void;
@@ -22,17 +16,39 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
       <div className={styles.inner}>
         <div className={styles.left}>
           <Burger />
-
-          <Select options={apartmentOptions} placeholder="ВЫБРАТЬ КВАРТИРУ" />
+          <button
+            className={`${styles.phoneBtn} ${styles.phoneBtnLeft}`}
+            aria-label="Позвонить"
+            onClick={onOpenModal}
+          >
+            <IconPhone />
+          </button>
+          <div className={styles.selectDesktop}>
+            <Select options={apartmentOptions} placeholder="ВЫБРАТЬ КВАРТИРУ" />
+          </div>
         </div>
 
-        <Image src="/images/logo.png" alt="logo" width={187} height={30} className={styles.logo} />
+        <div className={styles.logoWrap}>
+          <Image src="/images/logo.png" alt="logo" fill className={styles.logo} />
+        </div>
 
         <div className={styles.rightBlock}>
           <a href="tel:+74955272121">+7 495 527 21 21</a>
-          <Button variant={ButtonVariant.GHOST} onClick={onOpenModal}>
-            ЗАКАЗАТЬ ЗВОНОК
-          </Button>
+          <div className={styles.selectTablet}>
+            <Select options={apartmentOptions} placeholder="ВЫБРАТЬ КВАРТИРУ" />
+          </div>
+          <div className={styles.callButton}>
+            <Button variant={ButtonVariant.GHOST} onClick={onOpenModal}>
+              ЗАКАЗАТЬ ЗВОНОК
+            </Button>
+          </div>
+          <button
+            className={`${styles.phoneBtn} ${styles.phoneBtnRight}`}
+            aria-label="Позвонить"
+            onClick={onOpenModal}
+          >
+            <IconPhone />
+          </button>
         </div>
       </div>
     </header>

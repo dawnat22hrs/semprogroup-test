@@ -1,0 +1,73 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.field {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $color-gray;
+  background: transparent;
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-dark;
+  padding: 16px 0 8px;
+  outline: none;
+  transition: border-color $transition-base;
+
+  &:focus {
+    border-bottom-color: $color-dark;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: $font-primary;
+  font-size: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $color-black;
+  pointer-events: none;
+  transition:
+    top 0.25s ease,
+    font-size 0.25s ease,
+    color 0.25s ease;
+
+  @include desktop {
+    font-size: 16px;
+  }
+
+  @include small-desktop {
+    font-size: 14px;
+  }
+
+  @include tablet {
+    font-size: 14px;
+  }
+
+  @include tablet {
+    font-size: 11px;
+  }
+}
+
+.labelFloated {
+  top: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.inputError {
+  border-bottom-color: #e53935;
+}
+
+.error {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #e53935;
+}

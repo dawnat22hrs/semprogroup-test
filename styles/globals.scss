@@ -1,14 +1,7 @@
 @use 'fonts';
 @use 'variables' as *;
+@use 'mixins' as *;
 
-:root {
-  --color-white: #{$color-white};
-  --color-black: #{$color-black};
-  --color-blue: #{$color-blue};
-  --color-dark: #{$color-dark};
-  --color-gray: #{$color-gray};
-  --color-border: #{$color-border};
-}
 
 *,
 *::before,
@@ -35,7 +28,23 @@ body {
   background: $color-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0 80px 77px;
+  padding-bottom: 77px;
+
+  @include desktop {
+    padding-bottom: 40px;
+  }
+
+  @include small-desktop {
+    padding-bottom: 30px;
+  }
+
+  @include tablet {
+    padding-bottom: 40px;
+  }
+
+  @include mobile {
+    padding-bottom: 20px;
+  }
 }
 
 a {

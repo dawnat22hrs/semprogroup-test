@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './SecondScreen.module.scss';
-import { VideoBlock } from './VideoBlock';
-import { Typography } from '@/components/ui';
+import { VideoBlock } from '../../widgets/VideoBlock/VideoBlock';
+import { Typography } from '@/shared/ui';
 import { colors } from '@/constants/colors';
 import clsx from 'clsx';
 
@@ -10,7 +10,7 @@ export const SecondScreen = () => {
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.imageCol}>
-          <Typography color={colors.blue} size="17px" className={styles.imageLabel}>
+          <Typography color={colors.blue} className={styles.imageLabel}>
             О ПРОЕКТЕ
           </Typography>
           <div className={styles.imageWrap}>
@@ -24,7 +24,9 @@ export const SecondScreen = () => {
               />
             </div>
             <div className={styles.badge}>
-              <Image alt="" src="/images/logo-short.png" width={63} height={88} />
+              <div className={styles.badgeLogo}>
+                <Image alt="" src="/images/logo-short.png" fill />
+              </div>
             </div>
           </div>
         </div>
@@ -32,15 +34,17 @@ export const SecondScreen = () => {
         <div className={styles.textCol}>
           <div className={styles.blueSeparator} />
           <div className={clsx(styles.textBlock, styles.titleBlock)}>
-            <Typography color={colors.dark} size={34} weight={500}>
-              уютное и безопасное пространство для счастливой,
-              <Typography color={colors.blue}>спокойной и размеренной жизни</Typography>
+            <Typography color={colors.dark} weight={500} className={styles.titleText}>
+              уютное и безопасное пространство для счастливой,{' '}
+              <Typography tag="span" color={colors.blue}>
+                спокойной и размеренной жизни
+              </Typography>
             </Typography>
           </div>
           <div className={clsx(styles.textBlock, styles.subtitleBlock)}>
-            <Typography color={colors.blue} size={20} weight={500}>
-              Квартиры от 65 до 356 м2 с чистовой отделкой,
-              <Typography color={colors.dark}>
+            <Typography color={colors.blue} className={styles.subtitleText}>
+              Квартиры от 65 до 356 м2 с чистовой отделкой,{' '}
+              <Typography tag="span" color={colors.dark}>
                 балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ охраняемой территориИ.
               </Typography>
             </Typography>

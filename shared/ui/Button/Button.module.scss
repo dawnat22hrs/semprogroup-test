@@ -1,23 +1,32 @@
 @use '../../../styles/variables' as *;
 
-.wrapper {
-  display: inline-block;
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  height: 51px;
+  font-family: $font-primary;
+  font-size: var(--button-font-size, 15px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+}
 
-  .arrow {
-    transition: transform $transition-base;
-  }
+.filled {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
 
-  &.open .arrow {
-    transform: rotate(180deg);
-  }
+.ghost {
+  background: transparent;
+  color: var(--color-blue);
+}
 
-  :global(.rselect__menu) {
-    animation: menuOpen 0.2s ease forwards;
-  }
-
-  &.closing :global(.rselect__menu) {
-    animation: menuClose 0.2s ease forwards;
-  }
+.overflow {
+  display: block;
+  overflow: hidden;
 }
 
 .label {
@@ -71,27 +80,5 @@
   100% {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@keyframes menuOpen {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes menuClose {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-6px);
   }
 }

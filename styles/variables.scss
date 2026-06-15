@@ -1,9 +1,16 @@
-// Breakpoints
-// 0–767: mobile
-// 768–1023: tablet
-// 1024–1280: small desktop
-// 1281–1769: desktop (base — 1440)
-// 1770+: wide desktop
+$color-blue: #2f80ed;
+$color-dark: #1a1a1a;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-gray: #d7d7d7;
+
+:root {
+  --color-blue: #{$color-blue};
+  --color-dark: #{$color-dark};
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+  --color-gray: #{$color-gray};
+}
 
 $bp-mobile-max: 767px;
 $bp-tablet-min: 768px;
@@ -14,18 +21,7 @@ $bp-desktop-min: 1281px;
 $bp-desktop-max: 1769px;
 $bp-wide-min: 1770px;
 
-// Colors
-$color-white: #ffffff;
-$color-black: #000000;
-$color-dark: #000000;
-$color-blue: #2f80ed;
-$color-dark: #1a1a1a;
-$color-gray: #d7d7d7;
-$color-border: #e0e0e0;
-
-// Font
 $font-primary: 'Proxima Nova', Arial, sans-serif;
 
-// Transitions
 $transition-base: 0.3s ease;
 $transition-modal: 0.4s ease;

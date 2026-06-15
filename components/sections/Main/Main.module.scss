@@ -5,15 +5,20 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 100px 0 150px;
+  padding: 100px 80px 150px;
   overflow: hidden;
 
+  @include desktop {
+    padding: 103px 40px 0;
+  }
+
   @include small-desktop {
-    padding-top: 56px;
+    padding: 103px 30px 0;
   }
 
   @include tablet {
-    padding-top: 52px;
+    padding: 123px 40px 0;
+    overflow: visible;
   }
 
   // iOS fix: no 100vh on mobile
@@ -21,7 +26,7 @@
     height: auto;
     min-height: -webkit-fill-available;
     min-height: 100dvh;
-    padding-top: 48px;
+    padding: 81px 20px 0;
   }
 }
 
@@ -31,6 +36,26 @@
   overflow: hidden;
   min-height: 0;
   height: 600px;
+
+  @include desktop {
+    flex: none;
+    height: 506px;
+  }
+
+  @include small-desktop {
+    flex: none;
+    height: 411px;
+  }
+
+  @include tablet {
+    flex: none;
+    height: 487px;
+  }
+
+  @include mobile {
+    flex: none;
+    height: 313px;
+  }
 }
 
 .image {
@@ -45,17 +70,78 @@
   align-items: end;
   height: 199px;
 
+  @include small-desktop {
+    height: 130px;
+  }
+
+  @include tablet {
+    height: auto;
+    align-items: start;
+    flex-direction: column;
+    gap: 43px;
+    padding-top: 40px;
+  }
+
+  @include mobile {
+    height: auto;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding-top: 20px;
+  }
+
   .subtitle {
     text-transform: uppercase;
     white-space: nowrap;
+    font-size: 31px;
+
+    @include desktop {
+      font-size: 26px;
+    }
+
+    @include small-desktop {
+      font-size: 19px;
+    }
+
+    @include tablet {
+      font-size: 26px;
+    }
+
+    @include mobile {
+      font-size: 4vw;
+    }
   }
 }
 
 .title {
-  // font-size: clamp(48px, 8vw, 120px);
+  display: block;
+  font-size: 192px;
   letter-spacing: 0.05em;
   line-height: 1;
   position: relative;
   left: 20px;
-  // height: 137px;
+  margin-top: -0.175em;
+  margin-bottom: -0.12em;
+
+  @include desktop {
+    font-size: 160px;
+  }
+
+  @include small-desktop {
+    font-size: 123px;
+    left: 13px;
+  }
+
+  @include tablet {
+    font-size: 19vw;
+    left: 0;
+    margin-left: -10px;
+    width: calc(100vw - 80px);
+  }
+
+  @include mobile {
+    font-size: 19vw;
+    width: calc(100vw - 40px);
+    left: -3px;
+  }
 }

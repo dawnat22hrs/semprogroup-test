@@ -9,6 +9,25 @@
   z-index: 100;
   background: $color-white;
   padding: 0 80px;
+
+  @include desktop {
+    padding: 0 40px;
+  }
+
+  @include small-desktop {
+    padding: 0 30px;
+    height: 103px;
+  }
+
+  @include tablet {
+    padding: 0 40px;
+    height: 123px;
+  }
+
+  @include mobile {
+    padding: 0 20px;
+    height: 81px;
+  }
 }
 
 .inner {
@@ -17,30 +36,146 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-
-  @include small-desktop {
-    height: 56px;
-  }
-
-  @include tablet {
-    height: 52px;
-  }
-
-  @include mobile {
-    height: 48px;
-  }
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 43px;
+
+  @include desktop {
+    gap: 40px;
+  }
+
+  @include small-desktop {
+    gap: 25px;
+  }
+
+  @include tablet {
+    gap: 62px;
+  }
 }
 
-.logo {
+.phoneBtn {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-dark;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @include mobile {
+    width: 41px;
+    height: 41px;
+  }
+}
+
+.phoneBtnLeft {
+  display: none;
+  border: 1px solid $color-gray;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.phoneBtnRight {
+  display: none;
+  border: 1px solid $color-blue;
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+.logoWrap {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  width: 187px;
+  height: 30px;
+
+  @include desktop {
+    width: 156px;
+    height: 25px;
+  }
+
+  @include small-desktop {
+    width: 156px;
+    height: 25px;
+  }
+
+  @include tablet {
+    width: 156px;
+    height: 25px;
+  }
+
+  @include mobile {
+    width: 131px;
+    height: 21px;
+  }
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.selectDesktop {
+  width: 240px;
+
+  @include desktop {
+    width: 203px;
+  }
+
+  @include small-desktop {
+    width: 192px;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.selectTablet {
+  display: none;
+
+  @include tablet {
+    display: block;
+    width: 188px;
+  }
+}
+
+.callButton {
+  --button-font-size: 15px;
+
+  @include desktop {
+    --button-font-size: 13px;
+  }
+
+  @include small-desktop {
+    --button-font-size: 12px;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .rightBlock {
@@ -49,8 +184,29 @@
   gap: 40px;
 
   a {
-    font-size: 14px;
+    font-size: 17px;
     color: $color-dark;
     font-weight: 600;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-blue;
+    }
+
+    @include desktop {
+      font-size: 14px;
+    }
+
+    @include small-desktop {
+      font-size: 13px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
   }
 }

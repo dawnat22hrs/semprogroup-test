@@ -9,7 +9,7 @@ import ReactSelect, {
   type SingleValueProps,
 } from 'react-select';
 import styles from './Select.module.scss';
-import { IconChevron } from '@/public/icons';
+import { IconChevron } from '@/assets/icons';
 
 export interface SelectOption {
   value: string;
@@ -69,41 +69,43 @@ const selectComponents = { DropdownIndicator, Placeholder, SingleValue };
 const selectStyles: StylesConfig<SelectOption, false> = {
   control: (base) => ({
     ...base,
-    width: 240,
-    height: 51,
-    minHeight: 51,
+    width: '100%',
+    height: 'var(--select-height)',
+    minHeight: 'var(--select-height)',
     background: 'var(--color-blue)',
     border: 'none',
     borderRadius: 100,
     boxShadow: 'none',
     cursor: 'pointer',
     padding: '0 20px',
+    overflow: 'hidden',
     '&:hover': { border: 'none' },
   }),
   valueContainer: (base) => ({
     ...base,
     padding: 0,
     height: '100%',
-    width: 162,
-    flexShrink: 0,
-    overflow: 'hidden',
+    flex: 1,
+    minWidth: 0,
   }),
   singleValue: (base) => ({
     ...base,
     color: 'var(--color-white)',
-    fontSize: 15,
+    fontSize: 'var(--select-font-size)',
     fontWeight: 600,
-    letterSpacing: '0.08em',
+    letterSpacing: 'var(--select-letter-spacing)',
     margin: 0,
     overflow: 'visible',
+    whiteSpace: 'nowrap',
   }),
   placeholder: (base) => ({
     ...base,
     color: 'var(--color-white)',
-    fontSize: 15,
+    fontSize: 'var(--select-font-size)',
     fontWeight: 600,
-    letterSpacing: '0.08em',
+    letterSpacing: 'var(--select-letter-spacing)',
     margin: 0,
+    whiteSpace: 'nowrap',
   }),
   indicatorSeparator: () => ({ display: 'none' }),
   dropdownIndicator: (base) => ({
@@ -122,9 +124,9 @@ const selectStyles: StylesConfig<SelectOption, false> = {
   menuList: (base) => ({ ...base, padding: 0 }),
   option: (base, state) => ({
     ...base,
-    fontSize: 15,
+    fontSize: 'var(--select-font-size)',
     fontWeight: 600,
-    letterSpacing: '0.08em',
+    letterSpacing: 'var(--select-letter-spacing)',
     padding: '12px 20px',
     cursor: 'pointer',
     backgroundColor: state.isSelected
